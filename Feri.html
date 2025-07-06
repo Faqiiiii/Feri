@@ -10,13 +10,11 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #2b0000; /* Warna latar belakang gelap seperti pada screenshot */
+      background-color: #2b0000;
+      font-family: sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: sans-serif;
     }
 
     h2 {
@@ -29,13 +27,20 @@
       padding: 20px;
       border-radius: 20px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      width: 90%;
-      max-width: 500px;
+      width: 95%;
+      max-width: 400px;
     }
 
     canvas {
-      width: 100% !important;
-      height: 300px !important;
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+    }
+
+    @media (max-width: 400px) {
+      canvas {
+        max-height: 200px;
+      }
     }
   </style>
 </head>
@@ -65,18 +70,19 @@
           borderWidth: 2,
           tension: 0.3,
           pointBackgroundColor: 'orange',
-          pointRadius: 5
+          pointRadius: 4
         }]
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         animation: false,
         plugins: {
           legend: {
             display: true,
             labels: {
               boxWidth: 20,
-              padding: 15
+              padding: 10
             }
           }
         },
